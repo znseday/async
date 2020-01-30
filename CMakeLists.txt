@@ -8,7 +8,6 @@ else()
     project(async VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 endif()
 
-
 add_executable(async_cli main.cpp my_utils.h)
 
 add_library(async SHARED async.cpp async.h bulk.cpp bulk.h my_utils.h)
