@@ -31,7 +31,8 @@ target_link_libraries(async_cli
     #Threads::Threads
 )
 
-install(TARGETS async RUNTIME DESTINATION bin)
+#install(TARGETS async RUNTIME DESTINATION bin)
+install(TARGETS async LIBRARY DESTINATION lib)
 
 set(CPACK_GENERATOR DEB)
 
