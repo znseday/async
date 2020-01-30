@@ -33,7 +33,7 @@ public:
 };
 //-----------------------------------------------
 
-class Commands
+class CommandHandler
 {
 private:
 
@@ -47,7 +47,7 @@ private:
 
 public:
 
-    Commands(size_t _N) : N(_N) {}
+    CommandHandler(size_t _N) : N(_N) {}
 
     void subscribe(const shared_ptr<Observer> &obs)
     {
@@ -109,7 +109,7 @@ class ConsoleObserver : public std::enable_shared_from_this<ConsoleObserver>, pu
 {
 public:
 
-    void Register(const unique_ptr<Commands> &_cmds)
+    void Register(const unique_ptr<CommandHandler> &_cmds)
     {
         auto t = shared_from_this();
         _cmds->subscribe(t);
@@ -130,7 +130,7 @@ class LocalFileObserver : public Observer, public std::enable_shared_from_this<L
 {
 public:
 
-    void Register(const unique_ptr<Commands> &_cmds)
+    void Register(const unique_ptr<CommandHandler> &_cmds)
     {
         _cmds->subscribe(shared_from_this());
     }
